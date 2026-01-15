@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MannKiBaat - Mental Health Support</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/questions.css">
+    <link rel="stylesheet" href="styles/result.css">
+    <link rel="stylesheet" href="styles/chat.css">
+    <link rel="stylesheet" href="styles/feedback.css">
+    <link rel="stylesheet" href="styles/summary.css">
+</head>
+<body>
+    <div class="loading-screen" id="initial-loader">
+        <div class="loader"><img class="loader-image" src="images/div.spinner.png" alt="loader"></div>
+        <p class="loader-quote">Did you know? Talking to someone for just 10 minutes can reduce stress and boost happiness levels.</p>
+    </div>
+
+    <div class="loading-screen" id="final-loader">
+        <div class="loader"><img class="loader-image" src="images/div.spinner.png" alt="loader"></div>
+        <p class="loader-quote">Checking through 10000 mentors<br>Finding perfect match for you.</p>
+    </div>
+
+    <div class="main-content" style="display: none;">
+        <div class="container">
+            <div class="slider">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="question-count"><span id="current"></span></div>
+            </div>
+            <div class="intro-text">Before we begin, let's understand you better</div>
+            <div class="arrow-container">
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="22" height="14" viewBox="0 0 22 14" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21.5009 6.99997C21.5009 6.80106 21.4218 6.61029 21.2812 6.46964C21.1405 6.32899 20.9498 6.24997 20.7509 6.24997H3.06135L7.78185 1.53097C7.85158 1.46124 7.9069 1.37846 7.94464 1.28735C7.98238 1.19624 8.0018 1.09859 8.0018 0.999971C8.0018 0.901355 7.98238 0.803705 7.94464 0.712596C7.9069 0.621487 7.85158 0.538703 7.78185 0.468971C7.71212 0.399239 7.62934 0.343925 7.53823 0.306186C7.44712 0.268447 7.34947 0.249023 7.25085 0.249023C7.15224 0.249023 7.05459 0.268447 6.96348 0.306186C6.87237 0.343925 6.78958 0.399239 6.71985 0.468971L0.719852 6.46897C0.650008 6.53864 0.594593 6.6214 0.556784 6.71252C0.518974 6.80364 0.499512 6.90132 0.499512 6.99997C0.499512 7.09862 0.518974 7.1963 0.556784 7.28742C0.594593 7.37854 0.650008 7.4613 0.719852 7.53097L6.71985 13.531C6.78958 13.6007 6.87237 13.656 6.96348 13.6938C7.05459 13.7315 7.15224 13.7509 7.25085 13.7509C7.34947 13.7509 7.44712 13.7315 7.53823 13.6938C7.62934 13.656 7.71212 13.6007 7.78185 13.531C7.85158 13.4612 7.9069 13.3785 7.94464 13.2873C7.98238 13.1962 8.0018 13.0986 8.0018 13C8.0018 12.9014 7.98238 12.8037 7.94464 12.7126C7.9069 12.6215 7.85158 12.5387 7.78185 12.469L3.06135 7.74997H20.7509C20.9498 7.74997 21.1405 7.67095 21.2812 7.5303C21.4218 7.38965 21.5009 7.19888 21.5009 6.99997Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="question-container">
+                <h2 id="question"></h2>
+                <div class="options" id="options">
+                </div>
+                <button id="next-btn" class="next-btn">
+                    Next
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.4991 5.99997C0.4991 6.19888 0.5782 6.38965 0.71885 6.5303C0.8595 6.67095 1.05027 6.74997 1.2491 6.74997H12.9386L8.2181 11.469C8.1484 11.5387 8.0931 11.6215 8.0554 11.7126C8.0176 11.8037 7.9982 11.9014 7.9982 12C7.9982 12.0986 8.0176 12.1962 8.0554 12.2873C8.0931 12.3785 8.1484 12.4612 8.2181 12.531C8.2879 12.6007 8.3707 12.656 8.4618 12.6938C8.5529 12.7315 8.6505 12.7509 8.7491 12.7509C8.8477 12.7509 8.9454 12.7315 9.0365 12.6938C9.1276 12.656 9.2104 12.6007 9.2801 12.531L13.2801 6.531C13.35 6.4613 13.4054 6.37854 13.4432 6.28742C13.481 6.1963 13.5005 6.09862 13.5005 5.99997C13.5005 5.90132 13.481 5.80364 13.4432 5.71252C13.4054 5.6214 13.35 5.53864 13.2801 5.46897L9.2801 0.468971C9.2104 0.399239 9.1276 0.343925 9.0365 0.306186C8.9454 0.268447 8.8477 0.249023 8.7491 0.249023C8.6505 0.249023 8.5529 0.268447 8.4618 0.306186C8.3707 0.343925 8.2879 0.399239 8.2181 0.468971C8.1484 0.538703 8.0931 0.621487 8.0554 0.712596C8.0176 0.803705 7.9982 0.901355 7.9982 0.999971C7.9982 1.09859 8.0176 1.19624 8.0554 1.28735C8.0931 1.37846 8.1484 1.46124 8.2181 1.53097L12.9386 6.24997H1.2491C1.05027 6.24997 0.8595 6.32899 0.71885 6.46964C0.5782 6.61029 0.4991 6.80106 0.4991 5.99997Z" fill="white" stroke="white" stroke-width="1.5"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="results-page" style="display: none;">
+        <div class="nav-container">
+            <div class="nav-buttons">
+                <button class="nav-btn">Conversations</button>
+                <button class="nav-btn" onclick="window.location.href='resources.html'" id="resources-btn">Resources</button>
+                <button class="nav-btn" onclick="window.location.href='exercises.html'" id="exercises-btn">Exercises</button>
+                <button class="nav-primary-btn">Start Conversation</button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1 class="primary-text">You're all set! We've found the best way to support you.</h1>
+            <p class="secondary-text">Based on your answers, we recommend talking to a Consultant, But you can choose any option that feels right for you!</p>
+            <div class="match-container">
+                <div class="expertise-label">Expertise Match</div>
+                <div class="circular-progress">
+                    <div class="progress-ring">
+                        
+                    </div>
+                    <div class="percentage">96%</div>
+                </div>
+            </div>
+            <div class="expert-profile">
+                <img src="images/Dragonfly Illustration 1.png" alt="Narrator1" class="expert-image">
+                <h3 class="expert-name">Narrator1</h3>
+                <span class="expert-tag">Stress & Anxiety Specialist</span>
+                <div class="rating">
+                    <span class="star">★</span>
+                    <span class="rating-value">4.9</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="primary-btn">Start Conversation</button>
+                    <button class="secondary-btn">Another Conversation</button>
+                </div>
+                <div class="about-section">
+                    <h4 class="about-title">About</h4>
+                    <p class="about-text">Helping people manage stress through mindful listening & practical advice.</p>
+                </div>
+            </div>
+            <div class="profile-section ai-profile">
+                <img src="images/Humanoid Robot at Grand Piano 1.png" alt="AI Assistant" class="ai-profile-image">
+                <!-- <span class="ai-profile-label">AI</span> -->
+                <div class="profile-text">Chat with Lucius (our AI model)</div>
+            </div>
+            <div class="profile-section peer-profile">
+                <img src="images/Animated Urban Handshake 1.png" alt="Peer Support" class="peer-profile-image">
+                <!-- <span class="peer-profile-label">Peer</span> -->
+                <div class="profile-text">Chat with a stranger about everyday stuff</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/scripts/questions.js"></script>
+    <script src="/scripts/chat.js"></script>
+    <script src="/scripts/feedback.js"></script>
+    <script src="/scripts/summary.js"></script>
+    <script>
+        document.getElementById('resources-btn').addEventListener('click', function() {
+            window.location.href = 'resources.html';
+        });
+    </script>
+</body>
+</html>
