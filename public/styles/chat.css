@@ -1,0 +1,1050 @@
+/* Chat container centered */
+.chat-container {
+  width: 50%;
+  height: 70vh;
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease-in-out;
+  flex: 1;  /* Allow container to grow */
+  max-width: 800px;  /* Default max width */
+}
+
+/* Stretching classes */
+.chat-container.stretch-left {
+  margin-left: 0;
+  margin-right: auto;
+  transform: translateX(-20px);  /* Adjust this value as needed */
+}
+
+.chat-container.stretch-right {
+  margin-left: auto;
+  margin-right: 0;
+  transform: translateX(20px);  /* Adjust this value as needed */
+}
+
+/* When both sides are stretched */
+.chat-container.stretch-left.stretch-right {
+  transform: translateX(0);
+  max-width: 1200px;  /* Larger max width when fully stretched */
+}
+
+/* Rest of the styles remain the same */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.chat-input-area {
+  padding: 20px;
+  display: flex;
+  gap: 0;
+}
+
+.chat-input,
+.emoji-btn,
+.send-button {
+  background: rgb(63, 12, 63);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px 0 0 8px;  /* Rounded only on left side */
+  font-size: 14px;
+  height: 30px;
+  color: white;
+  outline: none; /* Remove default focus outline */
+}
+
+/* Optional: Add a custom focus style if needed */
+.chat-input:focus {
+  box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2); /* Subtle purple glow */
+}
+
+.emoji-btn {
+  border: none;
+  padding: 0 12px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.send-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 0 8px 8px 0;  /* Rounded only on right side */
+  color: #8a2be2;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Container positioning */
+.chat-page-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;    /* Space between nav container and chat interface */
+  align-items: flex-start;
+}
+
+/* Arrow base styling */
+.side-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;  /* Ensure arrows stay on top */
+  color: white;
+
+  margin-top: 170px;
+}
+
+/* Left arrow positioning */
+.left-arrow {
+  margin-left: 125px; /* Adjust these values to match your container positioning */
+  margin-top: 130px;
+}
+
+/* Right arrow positioning */
+.right-arrow {
+  margin-right: 70px; /* Adjust these values to match your container positioning */
+}
+
+/* Rest of the hover effects remain same */
+.side-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Add new curved container */
+.bars-background-container {
+width: 185px;
+height: 570px;
+flex-shrink: 0;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+border-radius: 40px;  /* Curved edges */
+padding: 40px;  /* Spacing around bars */
+margin-bottom: -10px;  /* Overlap with base */
+
+border: 1px solid rgba(255, 255, 255, 0.40);
+background: rgba(128, 128, 128, 0.30);
+background-blend-mode: luminosity;
+
+/* Blur */
+backdrop-filter: blur(50px);
+
+/* Add transition to bars background container */
+transition: all 0.5s ease-in-out;
+overflow: hidden;
+
+margin-top: -40px;
+}
+
+/* Update chat bars container */
+.chat-bars-container {
+position: relative;
+display: flex;
+gap: 20px;
+height: 200px;
+z-index: 2;
+}
+
+.chat-progress-container {
+  width: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 120px;
+  margin-top: 40px;
+}
+
+.chat-bars-container {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  height: 200px;
+  margin-bottom: -50px; /* Adjust to overlap with SVG */
+  z-index: 2;
+}
+
+.progress-base {
+  position: relative;
+  z-index: 1;
+  margin-top: 350px;
+}
+
+.chat-vertical-bar {
+  width: 18px;
+  height: 512px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 40px 40px 0px 0px;
+  /* border: 1px solid rgba(255, 255, 255, 0.40); */
+  background: rgba(128, 128, 128, 0.60);
+  background-blend-mode: luminosity;
+
+  /* Blur */
+  backdrop-filter: blur(50px);
+  overflow: visible; /* Changed to show glow effect */
+}
+
+/* Green bar glow and effects */
+.chat-vertical-bar.green-fill::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  height: 88px;
+
+  border-radius: 40px 40px 0px 0px;
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  background: linear-gradient(180deg, rgba(30, 215, 96, 0.70) 0%, rgba(16, 113, 50, 0.70) 36.09%);
+  box-shadow: 0px 0px 250px 0px #55996D, 0px 0px 250px 0px #55996D, 0px 0px 158.558px 0px #55996D, 0px 0px 79.279px 0px #55996D, 0px 0px 22.651px 0px #55996D, 0px 0px 11.326px 0px #55996D;
+  animation: greenPulse 2s infinite;
+}
+  
+
+/* Orange bar glow and effects */
+.chat-vertical-bar.orange-fill::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  height: 434px;
+  
+  border-radius: 40px 40px 0px 0px;
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  background: linear-gradient(0deg, #FFC770 0%, #FFC770 100%);
+  box-shadow: 0px 0px 250px 0px #FF9F0A, 0px 0px 250px 0px #FF9F0A, 0px 0px 40.598px 0px #FF9F0A;
+  animation: orangePulse 2s infinite;
+}
+
+/* Base effect for bars */
+.chat-vertical-bar::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.chat-vertical-bar.green-fill::before {
+  box-shadow: 
+      0 0 10px #4CAF50,
+      0 0 20px rgba(76, 175, 80, 0.3);
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.chat-vertical-bar.orange-fill::before {
+  box-shadow: 
+      0 0 10px #FF9800,
+      0 0 20px rgba(255, 152, 0, 0.3);
+  background: rgba(255, 152, 0, 0.3);
+}
+
+/* Pulse animations */
+@keyframes greenPulse {
+  0% {
+      box-shadow: 
+          0 0 10px #4CAF50,
+          0 0 20px rgba(76, 175, 80, 0.5);
+  }
+  50% {
+      box-shadow: 
+          0 0 15px #4CAF50,
+          0 0 30px rgba(76, 175, 80, 0.7);
+  }
+  100% {
+      box-shadow: 
+          0 0 10px #4CAF50,
+          0 0 20px rgba(76, 175, 80, 0.5);
+  }
+}
+
+@keyframes orangePulse {
+0% {
+    box-shadow: 
+        0 0 10px #FF9800,
+        0 0 20px rgba(255, 152, 0, 0.5);
+}
+50% {
+    box-shadow: 
+        0 0 15px #FF9800,
+        0 0 30px rgba(255, 152, 0, 0.7);
+}
+100% {
+    box-shadow: 
+        0 0 10px #FF9800,
+        0 0 20px rgba(255, 152, 0, 0.5);
+}
+}
+
+/* Add styles for right container */
+.right-side-container {
+  width: 346px;
+  height: 630px;
+  flex-shrink: 0;
+
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  background: rgba(128, 128, 128, 0.30);
+  background-blend-mode: luminosity;
+
+  /* Blur */
+  backdrop-filter: blur(50px);
+
+  margin-top: 0px;
+  margin-right: 50px;
+
+  /* Add transition to bars background container */
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+
+  padding-bottom: 20px;
+}
+
+.right-background-container {
+  position: relative;
+  border-radius: 40px;
+  padding: 30px 40px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tracking-section,
+.Ai-summarise-container,
+.notes-container {
+height: 154px;
+align-self: stretch;
+
+border-radius: 20px;
+border: 1px solid rgba(255, 255, 255, 0.40);
+background: rgba(128, 128, 128, 0.30);
+background-blend-mode: luminosity;
+
+/* Blur */
+backdrop-filter: blur(50px);
+
+padding: 0px 20px 10px 20px;
+}
+
+
+.tracking-title,
+.Ai-summarise-title {
+color: #D6B1E7;
+font-size: 18px; 
+font-style: normal;
+font-weight: 500;
+line-height: 22px; /* 157.143% */
+}
+
+/* .tracking-section {
+  padding: 15px;
+} */
+
+.tracking-title {
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.word-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.word-slot {
+  height: 30px;
+  width: 100%;
+
+  border-radius: 11.763px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%), rgba(208, 208, 208, 0.50);
+  background-blend-mode: luminosity, color-burn;
+  box-shadow: 0px -0.49px 0.98px 0px rgba(255, 255, 255, 0.30) inset, 0px -0.49px 0.98px 0px rgba(255, 255, 255, 0.25) inset, 0.98px 1.47px 3.921px 0px rgba(0, 0, 0, 0.08) inset, 0.98px 1.47px 3.921px 0px rgba(0, 0, 0, 0.10) inset;
+}
+
+.words-count {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  margin: 0;
+}
+
+.words-count span {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.Ai-summarise-container {
+padding-bottom: 30px;
+}
+
+.summarise-btn,
+.insight-btn {
+display: flex;
+height: 32px;
+padding: 0px 8px;
+align-items: center;
+align-self: stretch;
+
+color: white;
+border-radius: 10px;
+border: 1px solid rgba(255, 255, 255, 0.40);
+background: rgba(128, 128, 128, 0.70);
+background-blend-mode: luminosity;
+
+/* Blur */
+backdrop-filter: blur(50px);
+
+margin-bottom: 7px;
+}
+
+.notes-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 0px 15px;
+  min-height: 150px;
+  overflow: hidden;  /* Keep shapes inside container */
+}
+
+.notes-shapes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;  /* Height for the shapes area */
+  display: flex;
+  align-items: flex-end;
+
+  margin-left: 15px;
+}
+
+.notes-shapes img {
+  height: 20px;  /* Adjust based on your needs */
+  margin-right: -15px;  /* Negative margin for overlap */
+  transform-origin: bottom;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;  /* Show pointer on hover */
+}
+
+/* Individual shape adjustments with hover */
+.notes-shapes img:nth-child(1) {
+  height: 25px;
+  z-index: 4;
+}
+
+.notes-shapes img:nth-child(1):hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+.notes-shapes img:nth-child(2) {
+  height: 25px;
+  z-index: 3;
+}
+
+.notes-shapes img:nth-child(2):hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+.notes-shapes img:nth-child(3) {
+  height: 25px;
+  z-index: 2;
+}
+
+.notes-shapes img:nth-child(3):hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+.notes-shapes img:nth-child(4) {
+  height: 25px;
+  z-index: 1;
+}
+
+.notes-shapes img:nth-child(4):hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+.end-conversation-btn {
+  color: white;
+  display: flex;
+  width: 186px;
+  height: 44px;
+  padding: 0px 20px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: none;
+  font-size: 18px;
+  border-radius: 12px;
+  background: linear-gradient(0deg, #8D72FF 0%, #8D72FF 100%), #D0D0D0;
+  background-blend-mode: luminosity, color-burn;
+  box-shadow: 0px -0.5px 1px 0px rgba(255, 255, 255, 0.30) inset, 
+              0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 
+              1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset, 
+              1px 1.5px 4px 0px rgba(0, 0, 0, 0.10) inset;
+  margin-left: 40px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.end-conversation-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 12px rgba(141, 114, 255, 0.3), 
+              0px 6px 18px rgba(141, 114, 255, 0.2);
+}
+
+.end-conversation-btn:active {
+  transform: translateY(0);
+  box-shadow: 0px 2px 6px rgba(141, 114, 255, 0.3);
+}
+
+/* Only new styles for messages, no modifications to existing styles */
+.message {
+  margin: 10px 0;
+  padding: 10px 15px;
+  max-width: 80%;
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.message-content {
+  color: white;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Common styles for both arrows */
+.side-arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  margin-top: 200px
+}
+
+.side-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Left arrow specific */
+.left-arrow {
+  left: -30px;  /* Align with container start */
+}
+
+/* Right arrow specific */
+.right-arrow {
+  right: 0;  /* Align with container end */
+}
+
+/* Arrow icons */
+.side-arrow svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+  stroke-width: 2;
+  transition: transform 0.3s ease;
+}
+
+.side-arrow:hover svg {
+  transform: scale(1.1);
+}
+
+/* Update container positions */
+.chat-progress-container,
+.right-side-container {
+  position: relative;
+}
+
+.chat-page-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;    /* Space between nav container and chat interface */
+  align-items: flex-start;
+}
+
+/* Add transition effects for right container */
+.right-background-container {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Ensure container has proper overflow handling */
+.right-side-container {
+  overflow: hidden;
+}
+
+/* Update hover effect for right arrow to maintain rotation */
+.chat-page-wrapper .right-arrow:hover {
+  transform: translateY(-100px) scale(1.1) rotate(var(--rotation, 0deg));
+}
+
+/* Update transition for the entire right side container */
+.right-side-container {
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+/* Ensure all child elements inherit the transition */
+.right-side-container * {
+  transition: inherit;
+}
+
+/* Update arrow positioning to stay fixed */
+.chat-page-wrapper .side-arrow {
+  transform: translateY(-100px);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center;  /* Ensure rotation happens from center */
+}
+
+/* Update hover and click states to maintain vertical position */
+.chat-page-wrapper .side-arrow:hover {
+  transform: translateY(-100px) scale(1.1);
+}
+
+/* Specific states for when containers are hidden */
+.chat-page-wrapper .side-arrow.rotated {
+  transform: translateY(-100px) rotate(180deg);
+}
+
+.chat-page-wrapper .side-arrow.rotated:hover {
+  transform: translateY(-100px) rotate(180deg) scale(1.1);
+}
+
+/* Ensure all child elements inherit the transition */
+.bars-background-container * {
+  transition: inherit;
+}
+
+/* Keep existing transitions for right side */
+.right-side-container {
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+.right-side-container * {
+  transition: inherit;
+}
+
+/* Add transition for SVG rotation */
+.side-arrow svg {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Rotate SVG when container is hidden */
+.side-arrow.rotated svg {
+  transform: rotate(180deg);
+}
+
+/* Keep existing hover effect while maintaining rotation */
+.side-arrow:hover svg {
+  transform: scale(1.1);
+}
+
+.side-arrow.rotated:hover svg {
+  transform: rotate(180deg) scale(1.1);
+}
+
+.end-chat-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(0px);
+  transition: all 0.3s ease;
+}
+
+.end-chat-modal.active {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: #2D1B69;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 400px;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.end-chat-modal.active .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-content h3 {
+  color: white;
+  margin-bottom: 25px;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal-btn {
+  padding: 10px 40px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.no-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.yes-btn {
+  color: white;
+
+  border-radius: 20px;
+  border-top: 1px solid rgba(112, 0, 0, 0.40);
+  border-bottom: 1px solid rgba(112, 0, 0, 0.40);
+  background: linear-gradient(296deg, rgba(255, 0, 0, 0.20) 3.45%, rgba(255, 0, 0, 0.10) 96.55%);
+}
+
+.modal-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Add exit animations */
+.end-chat-modal.closing {
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+}
+
+.end-chat-modal.closing .modal-content {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  background: #2D1B69;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  transform-origin: bottom right;
+  transform: scale(0.8) translateY(20px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.emoji-picker.active {
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.emoji-picker-content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  width: 200px;
+}
+
+.emoji-option {
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.emoji-picker.active .emoji-option {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger emoji appearance */
+.emoji-option:nth-child(n) {
+  transition-delay: calc(0.03s * var(--i, 0));
+}
+
+.emoji-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.2);
+}
+
+/* Ensure proper positioning */
+.chat-input-area {
+  position: relative;
+}
+
+.chat-message {
+  max-width: 80%;
+  margin: 4px 0;
+  padding: 12px 16px;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+}
+
+/* Message container with profile picture */
+.message-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 8px 0;
+  justify-content: flex-end;
+}
+
+/* User message container specific */
+.user-message-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+/* Profile picture styling */
+.message-pfp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 12px;
+}
+
+/* Message styling */
+.user-message {
+  background: #7F6FC3;
+  color: white;
+  border-radius: 12px 12px 4px 12px;
+  max-width: 70%;
+  padding: 12px 16px;
+}
+
+/* Animation for the entire container */
+@keyframes messageAppear {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.message-container {
+  animation: messageAppear 0.3s ease forwards;
+}
+
+.notes-shapes img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.notes-shapes img:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.note-input-container {
+  width: 210px;
+  position: relative;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 15px;
+  animation: noteAppear 0.3s ease forwards;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.note-textarea {
+  width: 89%;
+  min-height: 120px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+  padding: 10px;
+}
+
+.note-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes noteAppear {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Optional: Add scrollbar styling */
+.note-textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.note-textarea::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.note-textarea::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* Add to your existing CSS */
+.bot-message-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+.bot-message {
+  background: #7F6FC3;
+  color: white;
+  border-radius: 12px 12px 12px 4px;
+  max-width: 70%;
+  padding: 12px 16px;
+}
+
+.typing-indicator {
+  display: flex;
+  padding: 12px 16px;
+  background: #2D1B69;
+  border-radius: 15px;
+  margin: 8px 0;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.typing-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #8a2be2, #00bfff);
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out;
+  box-shadow: 0 0 6px rgba(138, 43, 226, 0.3);
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@keyframes typingBounce {
+  0%, 80%, 100% {
+      transform: scale(0.8);
+      opacity: 0.6;
+  }
+  40% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+.chat-page-wrapper .nav-container-wrapper {
+  position: fixed;
+  top: -4px; /* Move the container up */
+  width: 100%;
+}
+
+.chat-page-container {
+  margin-top: 150px;
+}
