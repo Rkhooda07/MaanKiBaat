@@ -1,0 +1,505 @@
+/* Apply gradient background to body when dashboard is active */
+.dashboard-active {
+  background: linear-gradient(180deg, #130F24 0%, #35194A 50%, #582370 100%) !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  min-height: 100vh !important;
+}
+
+.dashboard-active html {
+  background: linear-gradient(180deg, #130F24 0%, #35194A 50%, #582370 100%) !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  min-height: 100vh !important;
+}
+
+/* Add these styles to your existing CSS */
+.results-page {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #130F24 0%, #35194A 50%, #582370 100%);
+  /* Ensure background covers scrolling area */
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.nav-container {
+  width: 80%;
+  height: 50px;
+  background-color: white;
+  margin: 20px auto 20px auto;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #8a2be2;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+  color: #7B1FA2;
+  transform: translateY(-2px);
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #8a2be2, #00bfff);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-primary-btn {
+  background: linear-gradient(279deg, #7F6FC3 4.87%, #993CC3 72.42%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+}
+
+.nav-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 27, 154, 0.2);
+}
+
+.content {
+  width: 80%;
+  margin: 40px auto 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.primary-text {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.secondary-text {
+  font-size: 20px;
+  color: #DFDBF0;
+  font-weight: normal;
+  line-height: 1.5;
+  opacity: 0.9;
+  width: 750px;
+}
+
+/* Add these styles */
+.match-container {
+  margin-top: 150px;
+  width: 300px;
+}
+
+.expertise-label {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 25px;
+  border-radius: 25px;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-left: 25px;
+  font-size: 16px;
+}
+
+.circular-progress {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* Inner ring with green progress */
+.progress-ring::before {
+  content: '';
+  position: absolute;
+  width: calc(100% - 60px);
+  height: calc(100% - 60px);
+  top: 30px;
+  left: 30px;
+  border-radius: 50%;
+  border: 14px solid rgba(255, 255, 255, 0.1);
+  border-top: 14px solid #4CAF50;
+  border-right: 14px solid #4CAF50;
+  box-sizing: border-box;
+  transform: rotate(-30deg); /* Adjust for partial fill */
+}
+
+/* Outer ring with orange progress */
+.progress-ring::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 14px solid rgba(255, 255, 255, 0.1);
+  border-top: 14px solid #FB542B;
+  border-right: 14px solid #FB542B;
+  box-sizing: border-box;
+  transform: rotate(80deg); /* Adjust for partial fill */
+}
+
+/* Small circle at the end of green progress */
+.progress-ring .progress-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #4CAF50;
+  border-radius: 50%;
+  top: 25%;
+  left: 25%;
+  transform: rotate(300deg) translateX(50px);
+}
+
+.percentage {
+  color: #8B6EFF;  /* Purple color for percentage */
+  backdrop-filter: blur(45.33333969116211px);
+  font-size: 42px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+}
+
+/* Update content class to allow for layout */
+.content {
+  width: 80%;
+  margin: 40px auto 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.primary-text, .secondary-text {
+  max-width: 1000px;  /* or whatever width works best */
+}
+
+.expert-profile {
+  position: absolute;
+  left: 600px;
+  top: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 350px;
+  height: 500px;
+  padding: 0px 40px 0px 26px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  background: rgba(128, 128, 128, 0.30);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(50px);
+  transition: all 0.3s ease;
+}
+
+.expert-profile:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.2),
+      inset 0 0 20px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.expert-image {
+  border-radius: 40px;
+  object-fit: cover;
+  margin-bottom: 25px;
+  margin-top: -60px;
+  width: 146px;
+  height: 146px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+
+  padding: 3px;  /* Creates space for the glow effect */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+  box-shadow: 
+      0 0 15px rgba(255, 255, 255, 0.3),
+      inset 0 0 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+}
+
+.expert-image:hover {
+transform: scale(1.05);
+border-color: white;
+box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.expert-name {
+  color: white;
+  font-size: 24px;
+  margin: 0 0 5px 0;
+}
+
+.expert-tag {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 25px;
+}
+
+.star {
+  color: white;
+  font-size: 20px;
+}
+
+.rating-value {
+  color: white;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 16px 20px;
+  border-radius: 100px;
+  width: 186px;  
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(279deg, #7F6FC3 4.87%, #993CC3 72.42%);
+  color: white;
+  height: 50px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.2);
+}
+
+/* Hover effect */
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.3);
+  background: linear-gradient(279deg, #7F6FC3 4.87%, #993CC3 72.42%) !important;
+}
+
+/* Active/Click effect */
+.primary-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.2);
+}
+
+/* Shine effect on hover */
+.primary-btn::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+  );
+  top: 0;
+  left: -100%;
+  transition: 0.5s;
+}
+
+.primary-btn:hover::before {
+  left: 100%;
+}
+
+/* Optional: Add subtle text glow on hover */
+.primary-btn:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.secondary-btn {
+  font-size: 16px;
+  padding: 16px 10px !important;
+  color: white;
+  background: rgba(128, 128, 128, 0.30);
+  border: 1px solid #FFF;
+}
+
+.primary-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.secondary-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.about-section {
+  color: white;
+  margin-top: 34px;
+}
+
+.about-title {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+
+.about-text {
+  font-size: 14px;
+  width: 300px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Add to your existing CSS */
+.ai-profile, .peer-profile {
+  position: absolute;
+  width: 300px;
+  top: 500px;
+}
+
+.ai-profile-image,
+.peer-profile-image {
+height: 200px;
+border-radius: 50px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+      0 0 15px rgba(255, 255, 255, 0.1),
+      inset 0 0 15px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+}
+
+.ai-profile-image:hover,
+.peer-profile-image:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.2),
+      inset 0 0 20px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.ai-profile {
+  left: calc(50% + 250px); /* Changed from 300px to move it left */
+  top: 500px;
+}
+
+.peer-profile {
+  left: calc(50% + 500px); /* Changed from 550px to move it left */
+  top: 500px;
+}
+
+/* Rest of the styling remains the same as expert-profile */
+
+.ai-profile-label,
+.peer-profile-label {
+  position: absolute;
+  bottom: 35px;
+  left: 25px;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.profile-text {
+  color: white;
+  font-size: 13px;
+  max-width: 200px;
+  line-height: 1.4;
+  opacity: 0.9;
+
+  display: flex;
+  width: 185px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  background: rgba(128, 128, 128, 0.30);
+  background-blend-mode: luminosity;
+
+  /* Blur */
+  backdrop-filter: blur(50px);
+  padding: 0px 10px;
+}
