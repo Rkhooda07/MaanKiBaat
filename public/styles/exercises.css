@@ -1,0 +1,315 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #130F24 0%, #35194A 50%, #582370 100%);
+    font-family: Arial, sans-serif;
+    color: white;
+}  
+
+.nav-container {
+    width: 80%;
+    height: 50px;
+    background-color: white;
+    margin: 20px auto 20px auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+.index-nav-container {
+    margin-top: 20px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #8a2be2;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn:hover {
+    background-color: rgba(138, 43, 226, 0.1);
+    color: #7B1FA2;
+    transform: translateY(-2px);
+}
+
+.nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #8a2be2, #00bfff);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-btn:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-primary-btn {
+    background: linear-gradient(279deg, #7F6FC3 4.87%, #993CC3 72.42%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+}
+
+.nav-primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.2);
+}
+
+.main-heading,
+.sub-heading,
+.traumas-heading {
+    margin-left: 150px;
+}
+
+.main-heading,
+.traumas-heading {
+    margin-top: 25px;
+    font-size: 34px;
+    color: white;
+}
+
+.sub-heading {
+    width: 570px;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: white;
+}
+
+.traumas-container {
+    display: flex;
+    gap: 30px;
+    margin: 10px 150px;
+}
+
+.trauma-card {
+    flex: 0 1 auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Added transition for smooth effect */
+    cursor: pointer;
+    position: relative;  /* Position relative for the glow effect */
+    overflow: hidden;  /* Ensure the glow doesn't overflow */
+}
+
+.trauma-card:hover {
+    transform: scale(1.05);  /* Slightly enlarge the card on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);  /* Add a shadow effect */
+    animation: glow 1.5s infinite alternate;  /* Add glowing animation */
+}
+
+/* Keyframes for the glowing effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1); 
+    }
+}
+
+.trauma-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.trauma-text {
+    position: absolute;  /* Position the text absolutely within the card */
+    bottom: 20px;  /* Position it 10px from the bottom */
+    right: 24px;  /* Position it 10px from the right */
+    color: white;  /* Set text color to white */
+    font-size: 18px;  /* Adjust font size as needed */
+    padding: 5px;  /* Optional: Add some padding */
+    border-radius: 5px;  /* Optional: Round the corners */
+}
+
+/* Slider Container */
+.slider-container {
+    position: fixed;  /* Fixed position to keep it on the left */
+    left: 200px;  /* Adjust as needed */
+    top: 120px;  /* Adjust to position below the nav */
+    height: 750px;  /* Height of the slider */
+    width: 20px;  /* Width of the slider */
+}
+
+/* Slider Track */
+.slider {
+    background: rgba(255, 255, 255, 0.2);  /* Light background for the track */
+    height: 100%;  /* Full height */
+    border-radius: 10px;  /* Rounded edges */
+    position: relative;  /* Position relative for the thumbs */
+}
+
+/* Slider Thumbs */
+.slider-thumb {
+    position: absolute;  /* Position absolute to place them on the track */
+    width: 20px;  /* Width of the thumb */
+    height: 20px;  /* Height of the thumb */
+    background: linear-gradient(180deg, #8a2be2, #00bfff);  /* Gradient color */
+    border-radius: 50%;  /* Circular shape */
+    transition: background 0.3s;  /* Smooth transition for hover */
+}
+
+/* Module Container */
+.module-container {
+    display: flex;  /* Use flexbox for horizontal alignment */
+    flex-direction: column;  /* Stack the modules vertically */
+    margin-left: 300px;  /* Space between the slider and modules */
+    width: 450px;
+    margin-top: 40px;
+}
+
+/* Individual Module */
+.module {
+    background: rgba(255, 255, 255, 0.1);  /* Background for the module */
+    border-radius: 10px;  /* Rounded corners */
+    padding: 15px 35px;  /* Padding inside the module */
+    margin-bottom: 20px;  /* Space between modules */
+    transition: transform 0.3s ease;  /* Smooth transition */
+    border-radius: 50px;
+    color: #D6B1E7;
+    cursor: pointer;
+}
+
+/* Hover effect for modules */
+.module:hover {
+    transform: scale(1.02);  /* Slightly enlarge on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);  /* Add shadow on hover */
+}
+
+.module p {
+    font-size: 14px;
+}
+
+.module-image {
+    position: absolute;
+    right: 150px;
+    top: 150px;
+    width: 350px;  /* Reduced width to fit better */
+    height: auto;  /* Maintain aspect ratio */
+    z-index: 1;
+}
+
+.feature-heading {
+    position: absolute;
+    right: 200px;
+    top: 400px;
+    z-index: 2;
+}
+
+.feature-list {
+    position: absolute;
+    right: 50px;
+    top: 470px;
+    z-index: 2;
+}
+
+/* Feature Heading */
+.feature-heading {
+    margin-top: 20px;  /* Space above the heading */
+    font-size: 28px;  /* Font size for the heading */
+    color: white;  /* Text color */
+    text-align: left;  /* Align text to the left */
+    margin-bottom: 50px;
+}
+
+/* Feature List */
+.feature-list {
+    list-style-type: none;  /* Remove default list styling */
+    padding: 0;  /* Remove padding */
+    margin-top: 10px;  /* Space above the list */
+    color: white;  /* Text color */
+    font-size: 16px;  /* Font size for the list items */
+}
+
+.feature-list li {
+    margin-bottom: 5px;  /* Space between list items */
+}
+
+.feature-list span {
+    color: rgb(176, 176, 176);
+}
+
+.start-course-btn {
+    background: linear-gradient(279deg, #7F6FC3 4.87%, #993CC3 72.42%);
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 50px;
+    width: 190px;
+    margin-top: 20px;  /* Space above the button */
+    display: inline-block;  /* Ensure it behaves like a block element */
+
+    position: absolute;
+    right: 50px;
+    bottom: 60px;
+    z-index: 3;
+}
+
+.start-course-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.2);
+}
+
+.return-button-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.return-dashboard-btn {
+    background: linear-gradient(279deg, #7F6FC3 4.87%, #993CC3 72.42%);
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 45px;
+    font-weight: 500;
+}
+
+.return-dashboard-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.3);
+}
