@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Page</title>
+    <link rel="stylesheet" href="styles/course.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="nav-container">
+        <div class="nav-buttons">
+            <button class="nav-btn">Conversations</button>
+            <button class="nav-btn" onclick="window.location.href='resources.html'">Resources</button>
+            <button class="nav-btn" onclick="window.location.href='exercises.html'">Exercises</button>
+        </div>
+        <button class="nav-primary-btn" onclick="window.location.href='chat.html'">Start Conversation</button>
+    </div>
+
+    <div class="question-content">
+        <h1 class="main-heading">Module 1: Understanding Your Trauma</h1>
+
+        <p id="question-text" class="course-question"></p>
+
+        <div id="question-container" class="question-container">
+            <div id="answer-buttons"></div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="next-button" class="next-button">Next</button>
+        </div>
+    </div>
+
+    <button class="exit-button" onclick="window.location.href='exercises.html'">Exit</button>
+
+    <script src="scripts/question.js"></script>
+</body>
+</html>
