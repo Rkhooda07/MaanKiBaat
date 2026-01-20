@@ -1,0 +1,268 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #130F24 0%, #35194A 50%, #582370 100%);
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}  
+
+.nav-container {
+  width: 80%;
+  height: 50px;
+  background-color: white;
+  margin: 0px auto 70px auto;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.index-nav-container {
+  margin-top: -120px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #8a2be2;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+  color: #7B1FA2;
+  transform: translateY(-2px);
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #8a2be2, #00bfff);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-primary-btn {
+  background: linear-gradient(279deg, #7F6FC3 4.87%, #993CC3 72.42%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+}
+
+.nav-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 27, 154, 0.2);
+}
+
+.main-heading {
+  margin: 0 0 20px 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* Removed duplicate main-heading and problematic p margin */
+
+.sub-heading {
+  font-size: 19px;
+  margin-bottom: 40px;
+}
+
+/* Content Layout */
+.content-container {
+  display: flex;
+  margin: 30px 150px;
+  gap: 40px;
+}
+
+.left-content {
+  flex: 1;
+}
+
+.right-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.trauma-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Info Boxes */
+.info-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+}
+
+.info-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.info-item {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Term Badges */
+.terms-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.term-badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 14px;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  flex-shrink: 0;
+}
+
+.next-button {
+  background: linear-gradient(279deg, #7F6FC3 4.87%, #993CC3 72.42%);
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 50px;
+  width: 190px;
+}
+
+.next-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 27, 154, 0.2);
+}
+
+.question-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: calc(100vh - 90px); /* Account for nav bar height */
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.course-question {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 15px 0;
+  flex-shrink: 0;
+}
+
+.answer-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.answer-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.exit-button {
+  position: absolute;
+  right: 150px;
+  top: 160px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  width: 85px;
+  height: 44px;
+  padding: 0px 20px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(0deg, #8D72FF 0%, #8D72FF 100%), #D0D0D0;
+  background-blend-mode: luminosity, color-burn;
+  box-shadow: 0px -0.5px 1px 0px rgba(255, 255, 255, 0.30) inset, 
+              0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 
+              1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset, 
+              1px 1.5px 4px 0px rgba(0, 0, 0, 0.10) inset;
+  transition: transform 0.4s;
+}
+
+.exit-button:hover {
+  background: linear-gradient(0deg, #7A5EDC 0%, #7A5EDC 100%), #B0B0B0; /* Darker gradient on hover */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}

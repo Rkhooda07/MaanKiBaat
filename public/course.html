@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Page</title>
+    <link rel="stylesheet" href="styles/course.css"> <!-- Link to the new CSS file -->
+</head>
+<body>
+    <div class="nav-container">
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="window.location.href='index.html?skipQuestions=true'">Conversations</button>
+            <button class="nav-btn" onclick="window.location.href='resources.html'">Resources</button>
+            <button class="nav-btn" onclick="window.location.href='exercises.html'">Exercises</button>
+        </div>
+        <button class="nav-primary-btn" onclick="window.location.href='index.html?startChatDirect=true'">Start Conversation</button>
+    </div>
+
+    <h1 class="main-heading">Module 1: Understanding Your Trauma</h1>
+    <p class="sub-heading">🎯 Objective: Define childhood trauma, its causes, and effects on emotional well-being.</p>
+
+    <div class="content-container">
+        <div class="left-content">
+            <h2 class="section-title">What is trauma? How does it affect children?</h2>
+            <img class="trauma-image" src="images/Screen (Replace here).png" alt="Trauma visualization">
+        </div>
+        
+        <div class="right-content">
+            <h3 class="info-title">Key Points</h3>
+            <div class="info-box">
+                <div class="info-item">Trauma can occur in various forms (neglect, abuse, loss)</div>
+            </div>
+            
+            <h3 class="info-title">Key trauma-related terms</h3>
+            <div class="terms-container">
+                <span class="term-badge">PTSD</span>
+                <span class="term-badge">Attachment disorders</span>
+                <span class="term-badge">Emotional neglect</span>
+            </div>
+            
+            <h3 class="info-title">Highlight</h3>
+            <div class="info-box">
+                <div class="info-item">Trauma isn't just extreme events but can also stem from consistent emotional or psychological neglect.</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation-buttons">
+        <button class="next-button" onclick="window.location.href='question.html'">Next</button>
+    </div>
+
+    <button class="exit-button" onclick="window.location.href='exercises.html'">Exit</button>
+</body>
+</html>
