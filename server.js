@@ -201,6 +201,10 @@ app.post('/api/chat', (req, res) => {
     }
 });
 
-app.listen(port, () => {
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${port}`);
-}); 
+  });
+}
+
+export default app;
