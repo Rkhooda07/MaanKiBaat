@@ -1,7 +1,7 @@
 # MannKiBaat - Mental Health AI Chatbot
 
 ## 🌟 Live Demo
-**[🚀 View Live Demo]()**
+**[🚀 View Live Demo](https://maan-ki-baat.vercel.app/)**
 
 ## ✨ Features
 - 🤖 **AI Mental Health Companion** - Lucius provides empathetic, professional support
